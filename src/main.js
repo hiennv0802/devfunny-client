@@ -1,3 +1,9 @@
+/**
+ * Import Global Style (.css/.scss)
+ */
+import 'element-ui/lib/theme-chalk/index.css' // Theme UI
+import './assets/scss/index.scss' // Customize UI
+
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
