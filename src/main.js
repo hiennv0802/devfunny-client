@@ -12,12 +12,14 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import head from 'vue-head'
+import { sync } from 'vuex-router-sync'
 import i18n from './locales'
 
 Vue.config.productionTip = false
 
 Vue.use(head)
 Vue.use(ElementUI)
+sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
