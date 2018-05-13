@@ -15,7 +15,15 @@ export default {
   },
   data () {
     return {
+      title: 'Home',
       msg: 'Home page'
+    }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.title
+      }
     }
   }
 }

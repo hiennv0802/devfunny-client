@@ -9,7 +9,15 @@ export default {
   name: 'Signin',
   data () {
     return {
+      title: 'Signin',
       msg: 'Signin page'
+    }
+  },
+  head: {
+    title: function () {
+      return {
+        inner: this.title
+      }
     }
   }
 }
