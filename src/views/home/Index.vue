@@ -1,12 +1,18 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
+    <NotesContainer />
   </div>
 </template>
 
 <script>
+import NotesContainer from '@/modules/notes'
+
 export default {
   name: 'Home',
+  components: {
+    NotesContainer
+  },
   data () {
     return {
       msg: 'Home page'
