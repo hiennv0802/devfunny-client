@@ -8,7 +8,7 @@ import VueI18n from 'vue-i18n'
  * Import Language
  */
 import en from './i18n/en_US'
-import cn from './i18n/zh_CN'
+import vn from './i18n/zh_VN'
 
 /**
  * Config
@@ -25,7 +25,7 @@ export default new VueI18n({
       lang: en
     },
     cn: {
-      lang: cn
+      lang: vn
     }
   }
 })
