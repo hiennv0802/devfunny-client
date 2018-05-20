@@ -24,7 +24,7 @@ export default new VueI18n({
     en: {
       lang: en
     },
-    cn: {
+    vn: {
       lang: vn
     }
   }

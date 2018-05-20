@@ -76,3 +76,16 @@ a{
     color: $color-green;
   }
 }
+
+.help {
+  display: block;
+  font-size: .85rem;
+  margin-top: .25rem;
+}
+
+.is-danger {
+  color: $color-red;
+  input, textarea, select {
+    border-color: $color-red !important;
+  }
+}

@@ -14,11 +14,13 @@ import ElementUI from 'element-ui'
 import head from 'vue-head'
 import { sync } from 'vuex-router-sync'
 import i18n from './locales'
+import VeeValidate from 'vee-validate'
 
 Vue.config.productionTip = false
 
 Vue.use(head)
 Vue.use(ElementUI)
+Vue.use(VeeValidate)
 sync(store, router)
 
 /* eslint-disable no-new */
