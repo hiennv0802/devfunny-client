@@ -6,3 +6,900 @@
 @import './buttons/index.scss';
 @import './tables/index.scss';
 @import './transitions/index.scss';
+
+//--------------------------------------------------
+// Radius
+//--------------------------------------------------
+@mixin border_radius($br_value) {
+  @each $prefix in $set_prefix {
+    #{$prefix}border-radius: $br_value !important;
+  }
+}
+
+@mixin border_radius_top($br_value) {
+  @each $prefix in $set_prefix {
+    #{$prefix}border-top-left-radius: $br_value !important;
+    #{$prefix}border-top-right-radius: $br_value !important;
+    #{$prefix}border-bottom-left-radius: 0 !important;
+    #{$prefix}border-bottom-right-radius: 0 !important;
+  }
+}
+
+@mixin border_radius_bottom($br_value) {
+  @each $prefix in $set_prefix {
+    #{$prefix}border-top-left-radius: 0 !important;
+    #{$prefix}border-top-right-radius: 0 !important;
+    #{$prefix}border-bottom-left-radius: $br_value !important;
+    #{$prefix}border-bottom-right-radius: $br_value !important;
+  }
+}
+
+//--------------------------------------------------
+// ALPHA PREFIX
+//--------------------------------------------------
+@mixin alpha($t) {
+  opacity: $t;
+  -khtml-opacity: $t;
+  -moz-opacity: $t;
+}
+@mixin alpha_ms($t) {
+  filter: alpha(opacity=$t);
+  -ms-filter: "alpha(opacity=$t)";
+}
+
+//--------------------------------------------------
+// TRANSITION
+//--------------------------------------------------
+@mixin transition($v1, $v2, $v3) {
+  -webkit-transition: $v1 $v2 $v3;
+  -moz-transition: $v1 $v2 $v3;
+  -ms-transition: $v1 $v2 $v3;
+  transition: $v1 $v2 $v3;
+}
+
+//--------------------------------------------------
+// TRANSFORM
+//--------------------------------------------------
+@mixin transform($v1, $v2, $v3) {
+  -webkit-transform: rotate($v1) translate($v2, $v3);
+  -moz-transform: rotate($v1) translate($v2, $v3);
+  -ms-transform: rotate($v1) translate($v2, $v3);
+  transform: rotate($v1) translate($v2, $v3);
+}
+
+//--------------------------------------------------
+// BACKGROUND
+//--------------------------------------------------
+@mixin background-size($v) {
+  -webkit-background-size: $v;
+  -moz-background-size: $v;
+  -o-background-size: $v;
+  background-size: $v;
+}
+
+//--------------------------------------------------
+// POSITION
+//--------------------------------------------------
+@mixin position-set-middle-center($w,$h) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$h/2;
+  margin-left: -$w/2;
+}
+
+@mixin inner($sp-top,$sp-right,$sp-bottom,$sp-left) {
+  padding-top: $sp-top + px;
+  padding-right: $sp-right + px;
+  padding-bottom: $sp-bottom + px;
+  padding-left: $sp-left + px;
+}
+
+@mixin space($sp-top,$sp-right,$sp-bottom,$sp-left) {
+  margin-top: $sp-top + px;
+  margin-right: $sp-right + px;
+  margin-bottom: $sp-bottom + px;
+  margin-left: $sp-left + px;
+}
+
+
+//--------------------------------------------------
+// BOX
+//--------------------------------------------------
+@mixin box-sizing{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin box-sizing-content{
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+  -ms-box-sizing: content-box !important;
+  box-sizing: content-box !important;
+}
+@mixin box-flex($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-flex: $value;
+  }
+}
+@mixin box-ordinal-group($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-ordinal-group: $value;
+  }
+}
+@mixin box-align($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-align: $value;
+  }
+}
+@mixin box-direction($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-direction: $value;
+  }
+}
+@mixin box-pack($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-pack: $value;
+  }
+}
+@mixin box-lines($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-lines: $value;
+  }
+}
+@mixin display-box($value){
+  @each $prefix in $set_prefix {
+    display: #{$prefix}$value;
+  }
+}
+@mixin display($value){
+  @each $prefix in $set_prefix {
+    display: #{$prefix}$value;
+  }
+}
+@mixin align-items($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}align-items: $value;
+  }
+}
+@mixin flex($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}flex: $value;
+  }
+}
+@mixin flex-basis($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}flex-basis: $value;
+  }
+}
+@mixin flex-grow($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}flex-grow: $value;
+  }
+}
+@mixin justify-content($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}justify-content: $value;
+  }
+}
+@mixin flex-direction($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}flex-direction: $value;
+  }
+}
+@mixin flex-wrap($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}flex-wrap: $value;
+  }
+}
+
+//--------------------------------------------------
+// SHADOW
+//--------------------------------------------------
+@mixin box-shadow($r, $g, $b, $a, $v1, $v2, $v3, $v4){
+  @each $prefix in $set_prefix {
+    #{$prefix}box-shadow: rgba($r, $g, $b, $a) $v1 $v2 $v3 $v4;
+  }
+}
+
+//--------------------------------------------------
+// FONT
+//--------------------------------------------------
+
+@mixin text-shadow--white-char{
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+//--------------------------------------------------
+// FORM
+//--------------------------------------------------
+@mixin appearance($value){
+  @each $prefix in $set_prefix {
+    #{$prefix}appearance: $value;
+  }
+}
+
+//--------------------------------------------------
+// MEDIA QUERIES
+//--------------------------------------------------
+@mixin mq-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+//--------------------------------------------------
+// BUTTON
+//--------------------------------------------------
+
+//NORMAL BUTTON
+@mixin button-maker($size,$status: 'low',$bg: false) {
+  @include border_radius($radius);
+  @include box-sizing;
+  //
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  //
+  font-size: 13px;
+  //
+
+  //SIZE
+  @if $size == 'xs' {
+    font-size: 11px;
+    $w: 68px;
+    $h: 25px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+  } @else if $size == 's' {
+    font-size: 12px;
+    $w: 80px;
+    $h: 26px;
+    width: $w;
+    height: $h;
+    line-height: $h - 1px;
+  } @else if $size == 'm' {
+    $w: 140px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+  } @else if $size == 'l' {
+    $w: 180px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  } @else if $size == 'xl' {
+    $w: 220px;
+    $h: 38px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  } @else if $size == 'xxl' {
+  } @else if $size == 'full' {
+    $w: 100%;
+    $h: 50px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  }
+  //SIZE(IRREGULAR)
+  @else if $size == 'modal' {
+    font-size: 12px;
+    $w: 100px;
+    $h: 30px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+  } @else if $size == 'paywall' {
+    font-size: 12px;
+    $w: 130px;
+    $h: 30px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+    //SP ----------
+    @include mq-sp {
+      font-size: 11px;
+      width: 120px;
+    }
+  } @else if $size == 'header-login' {
+    font-size: 14px;
+    width: auto;
+    $h: 30px;
+    height: $h;
+    line-height: $h - 2px;
+    display: inline-block;
+  } @else if $size == 'only-icon' {
+    font-size: 11px;
+    $w: 35px;
+    $h: 25px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+  } @else if $size == 'top-signup' {
+    $w: 310px;
+    $h: 62px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+    @include border_radius($radius-full);
+    display: inline-block;
+    font-size: 18px;
+    //SP ----------
+    @include mq-sp {
+      $w: 260px;
+      $h: 50px;
+      width: $w;
+      height: $h;
+      line-height: $h - 2px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+  } @else if $size == 'top-login' {
+    $w: 80px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+    @include border_radius($radius-full);
+    font-size: 13px;
+    font-weight: normal;
+    //SP ----------
+    @include mq-sp {
+      $w: 70px;
+      $h: 28px;
+      width: $w;
+      height: $h;
+      line-height: $h;
+      @include border_radius($radius-full);
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+  //SIZE(RELATIVE)
+  @else if $size == 'relative-small' {
+    font-size: 12px;
+    $h: 26px;
+    height: $h;
+    line-height: $h - 1px;
+    display: inline-block !important;
+    padding: 0 10px;
+    &.block{
+      display: block !important;
+    }
+  } @else if $size == 'relative-medium' {
+    $h: 34px;
+    height: $h;
+    line-height: $h - 2px;
+    min-width: 100px;
+    display: inline-block !important;
+    padding: 0 10px;
+    &.block{
+      display: block !important;
+    }
+  } @else if $size == 'relativeModal' {
+    font-size: 12px;
+    $h: 30px;
+    height: $h;
+    line-height: $h - 2px;
+    min-width: 100px;
+    display: inline-block !important;
+    padding: 0 10px;
+    &.block{
+      display: block !important;
+    }
+    //SP ----------
+    @include mq-sp {
+      font-weight: bold;
+      min-width: 60px;
+    }
+  }
+  //SKIN
+  @if $status == 'low' {
+    border: 1px solid $color-bd-button;
+    color: $color-black;
+    background-color: #fff;
+    &:hover{
+      border: 1px solid $color-green;
+    }
+    &.button-after{
+      border: 1px solid $color-green;
+      color: $color-green;
+    }
+  } @if $status == 'frame' {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    &:hover{
+      border: 1px solid #fff;
+    }
+  } @else if $status == 'high' {
+    border: 1px solid $color-green;
+    background-color: $color-green;
+    color: #fff;
+    &.button-after{
+      border: 1px solid $color-grey;
+      background-color: $color-grey;
+      color: #fff;
+    }
+  } @else if $status == 'link' {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: #222;
+  } @else if $status == 'header-login' {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: $color-green;
+    font-weight: bold;
+  }
+}
+
+//ON IMAGES BUTTON
+@mixin button-maker-on-img($size,$status: 'low',$bg: false) {
+  @include border_radius($radius);
+  @include box-sizing;
+  //
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  //
+  font-size: 13px;
+  //
+
+  //SIZE
+  @if $size == 'xs' {
+  } @else if $size == 's' {
+    font-size: 12px;
+    $w: 80px;
+    $h: 30px;
+    width: $w;
+    height: $h;
+    line-height: $h - 3px;
+    //SP & tablet----------
+    @include mq-sp {
+      width: 80px;
+      height: auto;
+      padding: 0.4em 0;
+      line-height: normal;
+    }
+    @include mq-tablet {
+      width: 80px;
+      height: auto;
+      padding: 0.4em 0;
+      line-height: normal;
+    }
+  } @else if $size == 'm' {
+    $w: 140px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+    //SP & tablet----------
+    @include mq-sp {
+      width: 140px;
+      height: auto;
+      padding: 0.5em 0;
+      line-height: normal;
+    }
+    @include mq-tablet {
+      width: 140px;
+      height: auto;
+      padding: 0.6em 0;
+      line-height: normal;
+    }
+  } @else if $size == 'l' {
+    $w: 180px;
+    $h: 40px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+    //SP & tablet----------
+    @include mq-sp {
+      width: 180px;
+      height: auto;
+      padding: 0.5em 0;
+      line-height: normal;
+    }
+    @include mq-tablet {
+      width: 180px;
+      height: auto;
+      padding: 0.6em 0;
+      line-height: normal;
+    }
+  } @else if $size == 'xl' {
+    $w: 220px;
+    $h: 38px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+    //SP & tablet----------
+    @include mq-sp {
+      width: 220px;
+      height: auto;
+      padding: 0.5em 0;
+      line-height: normal;
+    }
+    @include mq-tablet {
+      width: 220px;
+      height: auto;
+      padding: 0.6em 0;
+      line-height: normal;
+    }
+  }
+  //SIZE(RELATIVE)
+  @else if $size == 'relative-small' {
+    font-size: 12px;
+    $h: 30px;
+    height: $h;
+    line-height: $h - 1px;
+    display: inline-block !important;
+    padding: 0 10px;
+    &.block{
+      display: block !important;
+    }
+    //SP & tablet----------
+    @include mq-sp {
+      height: auto;
+      padding: 0.4em 10px;
+      line-height: normal;
+    }
+    @include mq-tablet {
+      height: auto;
+      padding: 0.4em 10px;
+      line-height: normal;
+    }
+  }
+  //SKIN
+  @if $status == 'low' {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    &.button-after,&.btn-after{
+      border: 2px solid $color-green;
+      color: $color-green;
+      background-color: #fff;
+      font-weight: bold;
+    }
+  } @else if $status == 'high' {
+    border: 2px solid $color-green;
+    background-color: $color-green;
+    color: #fff;
+    &.button-after,&.btn-after{
+      border: 2px solid $color-grey;
+      background-color: $color-grey;
+    }
+  }
+  //
+}
+
+// ==============================================
+
+@mixin trantion_base() {
+  transition: color 150ms ease-out, background-color 150ms ease-out, box-shadow 150ms ease-out, opacity 150ms ease-out, border-color 150ms ease-out;
+}
+
+@mixin border_panel() {
+  box-shadow: -1px 0 0 0 $color_noteSide, 1px 0 0 0 $color_noteSide, 0 -1px 0 0 $color_noteTop, 0 1px 0 0 $color_noteBottom;
+}
+
+@mixin hover_note() {
+  @include pc_style {
+    transition: box-shadow 150ms ease-out;
+    &:hover {
+      box-shadow: -1px 0 0 0 darken($color_noteSide, 10%), 1px 0 0 0 darken($color_noteSide, 10%), 0 -1px 0 0 $color_noteBottom, 0 3px 0 0 $color_noteBottom;
+    }
+  }
+}
+
+@mixin hover_magazine() {
+  @include pc_style {
+    transition: box-shadow 150ms ease-out;
+    &:hover {
+      box-shadow: -1px 0 0 0 darken($color_noteSide, 10%), 1px 0 0 0 darken($color_noteSide, 10%), 0 -1px 0 0 $color_noteBottom, 0 3px 0 0 $color_noteBottom;
+    }
+  }
+}
+
+@mixin hover_tline() {
+  @include pc_style {
+    transition: box-shadow 150ms ease-out;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin hover_key() {
+  @include pc_style {
+    transition: border 150ms ease-out;
+    &:hover {
+      color: $color_key;
+      border: 1px solid $color_key;
+    }
+  }
+}
+
+@mixin hover_darken($c) {
+  @include pc_style {
+    transition: background-color 150ms ease-out;
+    &:hover {
+      background-color: darken($c, 10%)
+    }
+  }
+}
+
+@mixin hover_colorBase() {
+  @include pc_style {
+    transition: color 150ms ease-out;
+    &:hover {
+      cursor: pointer;
+      color: $color_base;
+    }
+  }
+}
+
+@mixin hover_colorKey() {
+  @include pc_style {
+    transition: color 150ms ease-out;
+    &:hover {
+        cursor: pointer;
+        color: $color_key;
+    }
+  }
+}
+
+@mixin hover_bgKey() {
+  @include pc_style {
+    transition: background-color 150ms ease-out;
+    &:hover {
+      cursor: pointer;
+      background-color: $color_key;
+    }
+  }
+}
+
+@mixin hover_opacity() {
+  @include pc_style {
+    transition: opacity 150ms ease-out;
+    &:hover {
+      cursor: pointer;
+      opacity: .7;
+    }
+  }
+}
+
+@mixin hover_borderKey() {
+  @include pc_style {
+    transition: border 150ms ease-out;
+    &:hover {
+      border: 1px solid $color_key;
+    }
+  }
+}
+
+@mixin hover_borderBase() {
+  @include pc_style {
+    transition: border 150ms ease-out;
+    &:hover {
+      border: 1px solid rgba($color_base, .7);
+    }
+  }
+}
+
+@mixin hover_bordersubAccent() {
+  @include pc_style {
+    transition: border 150ms ease-out;
+    &:hover {
+      border: 1px solid $color_subAccent;
+    }
+  }
+}
+
+@mixin hover_borderDarken($p, $t, $c, $o) {
+  @include pc_style {
+    transition: border 150ms ease-out;
+    &:hover {
+      border: $p $t darken($c, $o);
+    }
+  }
+}
+
+@mixin hover_checkbox() {
+  @include pc_style {
+    &:after,
+    &:before {
+      transition: background-color 300ms ease-out;
+    }
+    &:hover {
+      cursor: pointer;
+      &:after {
+        background-color: rgba($color_key, .1);
+      }
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@mixin hover_underline() {
+  @include pc_style {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color_base;
+      transition: bottom 150ms ease-out
+    }
+    &:hover {
+      cursor: pointer;
+      transition: bottom 150ms ease-out;
+      &:before {
+        bottom: 0;
+      }
+    }
+  }
+}
+
+
+/* clearfix
+   ----------------------------------------------------------------- */
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+/* :before :after iconfont
+   ----------------------------------------------------------------- */
+
+@mixin iconfont($f) {
+  content: $f;
+  font-family: "icon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* SP ~ 480px
+   ----------------------------------------------------------------- */
+
+@mixin sp_style {
+  @media only screen and (max-width: $size_breakpoint_sp - 1) {
+    @content;
+  }
+}
+
+
+/* TB 768px
+   ----------------------------------------------------------------- */
+
+@mixin tb_style {
+  @media only screen and (min-width: $size_breakpoint_sp) and (max-width: $size_breakpoint_tb) {
+    @content;
+  }
+}
+
+
+/* PC 768px ~
+   ----------------------------------------------------------------- */
+
+@mixin pc_style {
+  @media only screen and (min-width: $size_breakpoint_tb + 1) {
+    @content;
+  }
+}
+
+
+//ここから
+
+
+/* font-size
+   -------------------------------------------------------------------------- */
+@mixin font-size($s:1.2) {
+  font-size: ($s * 10) + px;
+}
+
+/* truncate
+   -------------------------------------------------------------------------- */
+@mixin truncate(){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Media Query
+   -------------------------------------------------------------------------- */
+@mixin mq-sp {
+  @media only screen and (max-width: $size_breakpoint_sp - 1) {
+    @content;
+  }
+}
+@mixin mq-tablet {
+  @media only screen and (min-width: $size_breakpoint_sp) and (max-width: $size_breakpoint_tb) {
+    @content;
+  }
+}
+@mixin mq-tabletSp {
+  @media only screen and (max-width: $size_breakpoint_tb) {
+    @content;
+  }
+}
+@mixin mq-pc {
+  @media only screen and (min-width: $size_breakpoint_tb + 1) {
+    @content;
+  }
+}
+
+/* Placeholder
+   -------------------------------------------------------------------------- */
+@mixin placeholderColor($color:$color-placeholder) {
+  &:placeholder-shown {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color:$color;
+  }
+  &:-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color:$color;
+  }
+}
+
+/* font-smoothing
+   -------------------------------------------------------------------------- */
+@mixin fontSmoothingAntialiased(){
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* letter-spacing
+   -------------------------------------------------------------------------- */
+@mixin letterSpacingHeadline(){
+  letter-spacing: 0.03em;
+}
+@mixin letterSpacingText(){
+  letter-spacing: 0.05em;
+}
+
+/* form reset
+   -------------------------------------------------------------------------- */
+@mixin formReset(){
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}

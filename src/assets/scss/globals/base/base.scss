@@ -1,0 +1,78 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-black;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-kerning: normal;
+}
+
+a{
+  transition: .1s background-color, .1s border-color, .1s color, .1s fill;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+  font-family: inherit;
+}
+
+h1, .u-h1 {}
+h2, .u-h2 {}
+h3, .u-h3 {}
+h4, .u-h4 {}
+h5, .u-h5 {}
+h6, .u-h6 {}
+
+ul, ol {
+  list-style-type: none;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+i,
+cite,
+em,
+address,
+dfn {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+p, blockquote, dl, dt, dd, ul, ol, li, form {
+  font-size: 12px;
+}
+
+a, a:focus{overflow: hidden; outline: none;}
+a{
+  color: $color-black;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    color: $color-green;
+  }
+}
